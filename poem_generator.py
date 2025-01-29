@@ -7,10 +7,10 @@ from htbuilder.units import percent, px
 from htbuilder.funcs import rgba, rgb
 
 # Get the current credentials
-session = get_active_session()
+# session = get_active_session()
 # cursor = conn.cursor()
-# cnx = st.connection("snowflake")
-# session = cnx.session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 def display_layout():
     # st.title(":rose: Your Personalized Valentine's Day Poem :rose:")
