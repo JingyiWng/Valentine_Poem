@@ -56,17 +56,17 @@ def generate_poem(from_name, to_name, place, selected_genre):
      
                 # Track how many users have used the service
                 
-                # Version 1: Simple, but may have SQL injection
+                # Version 1: Simple, but may have SQL injection issues
                 # insert_stmt = f"""insert into valentine_db.support_data.user_input(user_name,insert_time)
                 #               values ('{from_name}',CURRENT_TIMESTAMP)"""
                 # session.sql(insert_stmt).collect()
                 
-                # Version 2: To avoid SQL injection, if using a Snowflake connector (snowflake.connector.connect()) 
+                # Version 2: To avoid SQL injection 
                 # insert_stmt = f"""insert into valentine_db.support_data.user_input(user_name,insert_time)
                 #               values (%s,CURRENT_TIMESTAMP)"""
                 # cursor.execute(insert_stmt, (from_name,))
                 
-                # Version 3: To avoid SQL injection, if using get_active_session()
+                # Version 3: To avoid SQL injection
                 insert_stmt = """insert into valentine_db.support_data.user_input(user_name,insert_time)
                               values (?,CURRENT_TIMESTAMP)"""
                 session.sql(insert_stmt, params=[from_name]).collect()
