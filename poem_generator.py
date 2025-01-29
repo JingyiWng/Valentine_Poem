@@ -4,8 +4,9 @@ from snowflake.snowpark.functions import col
 # import snowflake.connector
 
 # Get the current credentials
-session = get_active_session()
-# cursor = conn.cursor()
+# session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 def display_title():
     st.title(":rose: Valentine's Day Poem Generator :rose:")
