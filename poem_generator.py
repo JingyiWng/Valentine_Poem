@@ -26,9 +26,13 @@ def user_input():
     place = st.text_input(":hearts: Where you two first met (e.g. Restaurant L'Évidence, Cafe Olimpico, University of Ottawa)")
     # To handle names with single quotes
     place = place.replace("'", "\\'") 
+    
+    # Fetch the poem_genre table from Snowflake backend. Use the genre column as input selection
     all_genres = session.table("valentine_db.support_data.poem_genre").select(col('GENRE'))
     selected_genre = st.selectbox(":hearts: The genre of the poem", all_genres)
+    
     return from_name, to_name, place, selected_genre
+
 
 def generate_poem(from_name, to_name, place, selected_genre):
 
