@@ -10,7 +10,6 @@ from htbuilder.funcs import rgba, rgb
 # session = get_active_session()
 # cursor = conn.cursor()
 cnx = st.connection("snowflake")
-st.write("DB username:", st.secrets["db_username"])
 session = cnx.session()
 
 def display_layout():
