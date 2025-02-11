@@ -28,7 +28,8 @@ def user_input():
     place = place.replace("'", "\\'") 
     
     # Fetch the poem_genre table from Snowflake backend. Use the genre column as input selection
-    all_genres = session.table("valentine_db.support_data.poem_genre").select(col('GENRE'))
+    # all_genres = session.table("valentine_db.support_data.poem_genre").select(col('GENRE'))
+    all_genres = ('Villanelle (where line 1 repeats in lines 6, 12, 18; and line 3 repeats in lines 9, 15, 19)','Ballad (with a melodious rhyme scheme)','Free verse','Shakespeare')
     selected_genre = st.selectbox(":hearts: The genre of the poem", all_genres)
     
     return from_name, to_name, place, selected_genre
