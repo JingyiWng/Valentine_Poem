@@ -72,9 +72,9 @@ def generate_poem(from_name, to_name, place, selected_genre):
                 # cursor.execute(insert_stmt, (from_name,))
                 
                 # Version 3: To avoid SQL injection
-                # insert_stmt = """insert into valentine_db.support_data.user_input(user_name,insert_time)
-                #               values (?,CURRENT_TIMESTAMP)"""
-                # session.sql(insert_stmt, params=[from_name]).collect()
+                insert_stmt = """insert into valentine_db.support_data.user_input(user_name,insert_time)
+                              values (?,CURRENT_TIMESTAMP)"""
+                session.sql(insert_stmt, params=[from_name]).collect()
 
             except:
                 st.write('Please ensure your input does not have any special characters in the name fields')
